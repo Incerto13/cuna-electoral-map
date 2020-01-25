@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
 import USAMap from "./components/react-usa-map/src/index"; // 'react-usa-map
 import 'antd/dist/antd.css';
-import { Modal, Button } from 'antd';
+import { Modal } from 'antd';
 import electionData from './election-data/';
 import stateFullName from './utils/stateFullName';
 import stateFillColor from './components/stateFillColor';
+import cunaCandidates from './election-data/cunaCandidates';
 
 class App extends Component {
   state = {
     loading: false,
     visible: false,
-    selectedState: '',
-    stateData: ''
+    stateData: '',
+    selectedState: {
+      fullName: '',
+      abbrName: '',
+      resultFinal: false,
+      primaryDate: ''
+    }
   };
 
   /* mandatory */
@@ -19,8 +25,13 @@ class App extends Component {
     const state = event.target.dataset.name;
     if (electionData.preElection[state]) {
       this.setState({
-        selectedState: stateFullName[state],
-        stateData: electionData.preElection[state]
+        selectedState: {
+          fullName: stateFullName[state],
+          abbrName: state,
+          resultFinal: electionData.resultTracker[state].resultFinal,
+          primaryDate: electionData.resultTracker[state].primaryDate
+        },
+        stateData: this.getCurrentData(state)
       }, () => {
          this.setState({
           visible: true
@@ -53,13 +64,49 @@ class App extends Component {
     this.setState({ visible: false });
   };
 
+  getCurrentData = (state) => {
+    if (electionData.resultTracker[state].resultFinal) {
+      return electionData.postElection[state];
+    } else {
+      return electionData.preElection[state];
+    }
+  }
+
+  isCunaCandidate = (candidate, chamber, party, district) => {
+    const state = this.state.selectedState.abbrName;
+
+    if (!cunaCandidates[state] || !cunaCandidates[state][chamber]) {
+      return false;
+    }
+
+    if (chamber === 'senate') {
+      if (cunaCandidates[state][chamber][party]) {
+        if (cunaCandidates[state][chamber][party] === candidate) {
+          return true;
+        } else return false;
+      } else return false;
+    }
+
+    else if (chamber === 'house') {
+      if (cunaCandidates[state][chamber][district] && cunaCandidates[state][chamber][district][party]) {
+        if (cunaCandidates[state][chamber][district][party] === candidate) {
+          return true;
+        } else return false;
+      } else return false;
+    }
+  }
+
   render() {
     return (
       <div className="App">
         <USAMap customize={this.statesCustomConfig()} onClick={this.mapHandler} />
         <Modal
           visible={this.state.visible}
-          title={<h1>{this.state.selectedState}</h1>}
+          title={
+              !this.state.selectedState.resultFinal
+              ? <div><h1>{this.state.selectedState.fullName}</h1>primary on {this.state.selectedState.primaryDate} </div>
+              : <div><h1>{this.state.selectedState.fullName}</h1>Primary Results</div>
+          }
           onOk={this.handleOk}
           onCancel={this.handleCancel}
           footer={[
@@ -71,13 +118,14 @@ class App extends Component {
             <React.Fragment>
                 <React.Fragment>
                   <h2>Senate</h2>
-                  <div class="senate">
+                  <div className="senate">
                   <h4>Democratic</h4>
                     <div>
                       <ul>
                         {this.state.stateData.senate.dem.map((candidate, i) => {
+                          const cuna = this.isCunaCandidate(candidate, 'senate', 'dem');
                           return (
-                            <li key={candidate}>{candidate}</li>
+                            <li key={candidate}>{cuna ? <b>{candidate}</b> : candidate}</li>
                           );
                         })}
                       </ul>
@@ -86,8 +134,9 @@ class App extends Component {
                     <div>
                       <ul>
                         {this.state.stateData.senate.rep.map((candidate, i) => {
+                          const cuna = this.isCunaCandidate(candidate, 'senate', 'rep');
                           return (
-                            <li key={candidate}>{candidate}</li>
+                            <li key={candidate}>{cuna ? <b>{candidate}</b> : candidate}</li>
                           );
                         })}
                       </ul>
@@ -97,7 +146,7 @@ class App extends Component {
                 </React.Fragment>
                 <React.Fragment>
                   <h2>House</h2>
-                  <div class="house"></div>
+                  <div className="house"></div>
                   {Object.keys(this.state.stateData.house).map((district, i) => {
                     return (
                       <React.Fragment>
@@ -112,8 +161,9 @@ class App extends Component {
                                   <div>
                                     <ul>
                                       {this.state.stateData.house[district].dem.map((candidate, i) => {
+                                        const cuna = this.isCunaCandidate(candidate, 'house', 'dem', district);
                                         return (
-                                          <li key={candidate}>{candidate}</li>
+                                          <li key={candidate}>{cuna ? <b>{candidate}</b> : candidate}</li>
                                         );
                                       })}
                                     </ul>
@@ -122,8 +172,9 @@ class App extends Component {
                                   <div>
                                     <ul>
                                       {this.state.stateData.house[district].rep.map((candidate, i) => {
+                                        const cuna = this.isCunaCandidate(candidate, 'house', 'rep', district);
                                         return (
-                                          <li key={candidate}>{candidate}</li>
+                                          <li key={candidate}>{cuna ? <b>{candidate}</b> : candidate}</li>
                                         );
                                       })}
                                     </ul>
@@ -133,7 +184,7 @@ class App extends Component {
                             )
                           )
                           ||
-                          <p class="house">primaries cancelled</p>
+                          <p className="house">primaries cancelled</p>
                         }
                       </React.Fragment>
                     );

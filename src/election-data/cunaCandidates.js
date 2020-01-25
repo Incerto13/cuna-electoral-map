@@ -1,24 +1,24 @@
 const cunaCandidates = {
   AL: {
     senate: {
-      dem: 'name',
-      rep: 'name'
+      dem: "Doug Jones (Incumbent)",
+      rep: 'Jeff Sessions'
     },
     house: {
       1: {
-        dem: 'name',
-        rep: 'name'
+        dem: "Kiani Gardner",
+        rep: "Wes Lambert",
       },
       2: {
-        dem: 'name',
-        rep: 'name'
+        dem: "Phyllis Harvey-Hall",
+        rep:  "Jessica Taylor"
       },
       3: {
-        dem: 'name',
-        rep: 'name'
+        dem: "Adia Winfrey",
+        rep: "Mike Rogers (Incumbent)"
       },
       5: {
-        rep: 'name'
+        rep: "Mo Brooks (Incumbent)"
       }
     }
   },
@@ -36,12 +36,12 @@ const cunaCandidates = {
   },
   AZ: {
     senate: {
-      dem: 'name',
-      rep: 'name'
+      dem: "Mark Kelly",
+      rep: "Martha McSally (Incumbent)"
     },
     house: {
       1: {
-        dem: 'name',
+        dem: "Tom O'Halleran (Incumbent)",
         rep: 'name'
       },
       2: {
@@ -79,3 +79,5 @@ const cunaCandidates = {
 
   }
 }
+
+export default cunaCandidates;

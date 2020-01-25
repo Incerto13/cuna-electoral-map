@@ -1,38 +1,161 @@
-const preElection = {
+const postElection = {
   AL: {
-    H1: "Bradley Byrne (R) // House // District 1",
-    H2: "Martha Roby (R) // House // District 2 ",
-    H4: "Robert Aderholt (R) // House // District 4",
-    H6: "Gary Palmer (R) // House // District 6",
-    H7: "Terri Sewell (D) // House // District 7"
-  },
+    senate: {
+      dem: ["Doug Jones (Incumbent)"],
+      rep: [
+       "Stanley Adair",
+       "Bradley Byrne",
+       "Arnold Mooney",
+       "Roy Moore",
+       "Ruth Page Nelson",
+       "Jeff Sessions",
+       "Tommy Tuberville"
+      ]
+    },
+    house: {
+      1: {
+       dem: [
+         "James Averhart",
+         "Frederick Collins",
+         "Kiani Gardner"
+       ],
+       rep: [
+         "Jerry Carl",
+         "John Castorani",
+         "Bill Hightower",
+         "Wes Lambert",
+         "Chris Pringle"
+       ]
+      },
+      2: {
+        dem: [
+         "Phyllis Harvey-Hall",
+         "Nathan Mathis"
+        ],
+        rep: [
+         "Thomas W. Brown Jr.",
+         "Jeff Coleman",
+         "Terri Hasdorff",
+         "Troy King",
+         "Barry Moore",
+         "Robert Rogers",
+         "Jessica Taylor",
+        ]
+      },
+      3: {
+        dem: ["Adia Winfrey"],
+        rep: ["Mike Rogers (Incumbent)"]
+      },
+      4: "primaries cancelled",
+      5: {
+        dem: ["none"],
+        rep: [
+         "Mo Brooks (Incumbent)",
+         "Chris Lewis"
+        ]
+      },
+      6: "primaries cancelled",
+      7: "primaries cancelled"
+    }
+     },
   AK: {
-    "H-at-large": "Don Young (R) // House // At-Large District"
-  },
+     senate: {
+         dem: ["none"],
+         rep: [
+           "Daniel S. Sullivan (Incumbent)",
+           "Adam Master Newman"
+         ],
+         ind: ["Al Gross"]
+     },
+     house: {
+       1: {
+         dem: ["Alyse Galvin"],
+         rep: ["Don Young (Incumbent)"]
+       }
+     }
+   },
   AZ: {
-    H1: "Tom O'Halleran (D) // House // District 1",
-    H5: "Andy Biggs (R) // House // District 5",
-    H6: "David Schweikert (R) // House // District 6",
-    H7: "Ruben Gallego (D) // House // District 7"
-  },
-  AR: {
-    H2: "French Hill (R) // House // District 2"
-  },
-  CA: {}, // TODO
-  CO: {
-    H2: "oe Neguse (D) // House // District 2",
-    H3: "Scott Tipton (R) // House // District 3",
-    H5: "Doug Lamborn (R) // House // District 5",
-    H6: "Mike Coffman (R) // House // District 6",
-    H7: "Edwin Perlmutter (D) // House // District 7"
-  },
-  CT: {
-    S: "Chris Murphy (D) // Senate",
-    H1: "John Larson (D) // House // District 1",
-    H2: "Joseph Courtney (D) // House // District 2",
-    H3: "Rosa DeLauro (D) // House // District 3",
-    H4: "Jim Himes (D) // House // District 4"
-  }
+     senate: {
+       dem: [
+         "Mark Kelly",
+       ],
+       rep: [
+         "Martha McSally (Incumbent)",
+       ]
+     },
+     house: {
+       1: {
+         dem: [
+           "Tom O'Halleran (Incumbent)",
+         ],
+         rep: [
+           "Juan Smith",
+         ]
+       },
+       2: {
+         dem: [
+           "Ann Kirkpatrick (Incumbent)",
+         ],
+         rep: [
+           "Jason Bacon",
+         ]
+       },
+       3: {
+         dem: ["none"],
+         rep: [
+           "Steve Ronnebeck",
+         ]
+       },
+       4: {
+         dem: [
+           "Delina DiSanto",
+         ],
+         rep: [
+           "Anne Marie Ward"
+         ]
+       },
+       5: {
+         dem: [
+           "Jonathan Ireland"
+         ],
+         rep: [
+           "Andy Biggs (Incumbent)",
+         ]
+       },
+       6: {
+         dem: [
+           "Anita Malik",
+         ],
+         rep: [
+           "David Schweikert (Incumbent)"
+         ]
+       },
+       7: {
+         dem: [
+           "Ruben Gallego (Incumbent)"
+         ],
+         rep: [
+           "Chris Hindle"
+         ]
+       },
+       8: {
+         dem: [
+           "Michael Muscato",
+         ],
+         rep: [
+           "Debbie Lesko (Incumbent)",
+         ]
+       },
+       9: {
+         dem: [
+           "Greg Stanton (Incumbent)",
+         ],
+         rep: [
+           "Michelle DePalma",
+         ]
+       }
+     }
+   }
 };
 
-export default preElection;
+export default postElection;

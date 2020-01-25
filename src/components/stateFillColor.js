@@ -1,15 +1,17 @@
+import resultTracker from '../election-data/resultTracker';
+
 const statesFillColor = {
   AL: {
-  fill: "cadetblue"
+  fill: resultTracker['AL'].resultFinal ? "cadetblue" : "darkseagreen"
   },
   AK: {
-    fill: "cadetblue"
+    fill: resultTracker['AK'].resultFinal ? "cadetblue" : "darkseagreen"
   },
   AZ: {
-    fill: "cadetblue"
+    fill: resultTracker['AZ'].resultFinal ? "cadetblue" : "darkseagreen"
   },
   AR: {
-    fill: ""
+    fill: resultTracker['AZ'].resultFinal ? "cadetblue" : "darkseagreen"
   },
   CA: {
     fill: ""

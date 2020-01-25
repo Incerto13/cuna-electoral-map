@@ -1,6 +1,5 @@
 const preElection = {
   AL: {
-   primaryDate: '3/3/2020',
    senate: {
      dem: ["Doug Jones (Incumbent)"],
      rep: [
@@ -18,7 +17,7 @@ const preElection = {
       dem: [
         "James Averhart",
         "Frederick Collins",
-       " Kiani Gardner"
+        "Kiani Gardner"
       ],
       rep: [
         "Jerry Carl",
@@ -60,7 +59,6 @@ const preElection = {
    }
     },
   AK: {
-    primaryDate: '8/18/2020',
     senate: {
         dem: ["none"],
         rep: [
@@ -77,7 +75,6 @@ const preElection = {
     }
   },
   AZ: {
-    primaryDate: '8/4/2020',
     senate: {
       dem: [
         "Mohammad Arif",
