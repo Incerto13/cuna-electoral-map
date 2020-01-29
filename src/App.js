@@ -6,6 +6,10 @@ import electionData from './election-data/';
 import stateFullName from './utils/stateFullName';
 import stateFillColor from './components/stateFillColor';
 import cunaCandidates from './election-data/cunaCandidates';
+import { PrimaryCalendar, CompetitiveNominations } from './components/charts/Bar';
+import Line from './components/charts/Line';
+import Pie from './components/charts/Pie';
+import analytics from './election-data/analytics';
 
 class App extends Component {
   state = {
@@ -19,6 +23,12 @@ class App extends Component {
       primaryDate: ''
     }
   };
+
+  componentDidMount = () => {
+    this.setState({
+      competitiveNominations: analytics.competitiveNominations()
+    })
+  }
 
   /* mandatory */
   mapHandler = (event) => {
@@ -72,6 +82,7 @@ class App extends Component {
     }
   }
 
+  // TODO: move to analtics directory
   isCunaCandidate = (candidate, chamber, party, district) => {
     const state = this.state.selectedState.abbrName;
 
@@ -97,6 +108,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.competitiveNominations);
     return (
       <div className="App">
         <USAMap customize={this.statesCustomConfig()} onClick={this.mapHandler} />
@@ -197,6 +209,22 @@ class App extends Component {
             )
           }
         </Modal>
+
+      {/* Charts begin here */}
+      {
+        this.state.competitiveNominations
+        &&
+          <div style={{ maxWidth: '75%' }}>
+            <div style={{ width: 500 }}><PrimaryCalendar/></div>
+            <div style={{ width: 500 }}><CompetitiveNominations/></div>
+            <div style={{ width: '50%' }}><Line/></div>
+            <div style={{ width: '50%' }}><Pie/></div>
+          </div>
+      }
+
+
+
+
       </div>
     );
   }
