@@ -1,12 +1,7 @@
-import preElection from './preElection';
-import postElection from './postElection';
-import cunaCandidates from './cunaCandidates';
+import cunaCandidates from './cunaCandidates_old';
 import resultTracker from './resultTracker';
 
-
 const electionData = {
-  preElection,
-  postElection,
   cunaCandidates,
   resultTracker
 };

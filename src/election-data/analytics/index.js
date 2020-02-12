@@ -1,7 +1,7 @@
-import competitiveNominations from './competitiveNominations';
+import cunaSupportSuccessRate from './cunaSupportSuccessRate';
 
 const analytics = {
-  competitiveNominations,
+  cunaSupportSuccessRate
 };
 
 export default analytics;

@@ -2,158 +2,157 @@ import resultTracker from '../election-data/resultTracker';
 
 const statesFillColor = {
   AL: {
-  fill: resultTracker['AL'].resultFinal ? "cadetblue" : "darkseagreen"
+  fill: resultTracker['AL'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   AK: {
-    fill: resultTracker['AK'].resultFinal ? "cadetblue" : "darkseagreen"
+    fill: resultTracker['AK'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   AZ: {
-    fill: resultTracker['AZ'].resultFinal ? "cadetblue" : "darkseagreen"
+    fill: resultTracker['AZ'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   AR: {
-    fill: resultTracker['AZ'].resultFinal ? "cadetblue" : "darkseagreen"
+    fill: resultTracker['AR'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   CA: {
-    fill: ""
+    fill: resultTracker['CA'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   CO: {
-    fill: ""
+    fill: resultTracker['CO'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   CT: {
-    fill: ""
+    fill: resultTracker['CT'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   DC: {
-    fill: ""
+    fill: resultTracker['DC'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   DE: {
-    fill: "",
-    votes: 3
+    fill: resultTracker['DE'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   FL: {
-    fill: ""
+    fill: resultTracker['FL'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   GA: {
-    fill: ""
+    fill: resultTracker['GA'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   HI: {
-    fill: ""
+    fill: resultTracker['HI'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   ID: {
-    fill: ""
+    fill: resultTracker['ID'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   IL: {
-    fill: ""
+    fill: resultTracker['IL'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   IN: {
-    fill: ""
+    fill: resultTracker['IN'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   IA: {
-    fill: ""
+    fill: resultTracker['IA'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   KS: {
-    fill: ""
+    fill: resultTracker['KS'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   KY: {
-    fill: ""
+    fill: resultTracker['KY'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   LA: {
-    fill: ""
+    fill: resultTracker['LA'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   ME: {
-    fill: ""
+    fill: resultTracker['ME'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   MD: {
-    fill: ""
+    fill: resultTracker['MD'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   MA: {
-    fill: ""
+    fill: resultTracker['MA'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   MI: {
-    fill: ""
+    fill: resultTracker['MI'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   MN: {
-    fill: ""
+    fill: resultTracker['MN'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   MS: {
-    fill: ""
+    fill: resultTracker['MS'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   MO: {
-    fill: ""
+    fill: resultTracker['MO'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   MT: {
-    fill: ""
+    fill: resultTracker['MT'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   NE: {
-    fill: ""
+    fill: resultTracker['NE'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   NV: {
-    fill: ""
+    fill: resultTracker['NV'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   NH: {
-    fill: ""
+    fill: resultTracker['NH'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   NJ: {
-    fill: ""
+    fill: resultTracker['NJ'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   NM: {
-    fill: ""
+    fill: resultTracker['NM'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   NY: {
-    fill: ""
+    fill: resultTracker['NY'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   NC: {
-    fill: ""
+    fill: resultTracker['NC'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   ND: {
-    fill: ""
+    fill: resultTracker['ND'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   OH: {
-    fill: ""
+    fill: resultTracker['OH'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   OK: {
-    fill: ""
+    fill: resultTracker['OK'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   OR: {
-    fill: ""
+    fill: resultTracker['OR'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   PA: {
-    fill: ""
+    fill: resultTracker['PA'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   RI: {
-    fill: ""
+    fill: resultTracker['RI'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   SC: {
-    fill: ""
+    fill: resultTracker['SC'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   SD: {
-    fill: ""
+    fill: resultTracker['SD'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   TN: {
-    fill: ""
+    fill: resultTracker['TN'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   TX: {
-    fill: ""
+    fill: resultTracker['TX'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   UT: {
-    fill: ""
+    fill: resultTracker['UT'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   VT: {
-    fill: ""
+    fill: resultTracker['VT'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   VA: {
-    fill: ""
+    fill: resultTracker['VA'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   WA: {
-    fill: ""
+    fill: resultTracker['WA'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   WV: {
-    fill: ""
+    fill: resultTracker['WV'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   WI: {
-    fill: ""
+    fill: resultTracker['WI'].resultFinal ? "darkseagreen" : "#D3D3D3"
   },
   WY: {
-    fill: ""
+    fill: resultTracker['WY'].resultFinal ? "darkseagreen" : "#D3D3D3"
   }
 }
 

@@ -19,7 +19,7 @@ describe("Component: USAMap", () => {
       width: 959,
       height: 593,
       defaultFill: "#D3D3D3",
-      title: "Blank US states map",
+      title: "",
       customize: {
         "AK": {
           fill: "dummy-fill"
