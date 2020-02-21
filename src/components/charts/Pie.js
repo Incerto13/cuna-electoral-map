@@ -5,8 +5,9 @@ import analytics from '../../election-data/analytics';
 const { cunaSupportSuccessRate } = analytics;
 
 
+
 const state = {
-  labels: ['CUNA Candidates', 'Rest of Field'],
+  labels: ['CUNA-League supported victories'],
   datasets: [
     {
       label: 'Rainfall',
@@ -27,19 +28,37 @@ const state = {
 export class CunaCandidateSuccess extends React.Component {
   render() {
     return (
-      <div>
+      <div style={{ }}>
 
         <Doughnut
           data={state}
+          height={250}
+
+          maintain
           options={{
+            maintainAspectRatio: true,
             title:{
-              display:true,
-              text:'CUNA Success Rate (%)',
-              fontSize:20
+              display: false,
+              text:'',
+              fontSize: 20
             },
             legend:{
-              display:true,
-              position:'bottom'
+              display: true,
+              position:'bottom',
+              fontSize: 20
+            },
+            tooltips: {
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var dataset = data.datasets[tooltipItem.datasetIndex];
+                  var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                  });
+                  var currentValue = dataset.data[tooltipItem.index];
+                  var precentage = Math.floor(((currentValue/total) * 100)+0.5);
+                  return precentage + "%";
+                }
+              }
             }
           }}
         />

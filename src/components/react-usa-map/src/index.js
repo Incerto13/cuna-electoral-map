@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import { useMediaQuery } from '../../../utils/hooks';
+import React from 'react';
+// import { useMediaQuery } from '../../../utils/hooks';
 import PropTypes from "prop-types";
 import data from "./data/usa-map-dimensions";
 import USAState from "./components/USAState";
@@ -50,13 +50,13 @@ import './index.css';
 // }
 
 export const USAMap = (props) => {
-  const mobileSmall = useMediaQuery('(max-width: 320px)');
-  const mobileMedium = useMediaQuery('(min-width: 321px, max-width: 375px)');
-  const mobileLarge = useMediaQuery('(min-width: 376px, max-width: 414px)');
-  const mobileXLarge = useMediaQuery('(min-width: 415px, max-width: 500px)');
-  const desktopSmall = useMediaQuery('(min-width: 501px, max-width: 700px)');
-  const desktopMedium = useMediaQuery('(min-width: 701px, max-width: 900px)');
-  const desktopLarge = useMediaQuery('(min-width: 901px)');
+  // const mobileSmall = useMediaQuery('(max-width: 320px)');
+  // const mobileMedium = useMediaQuery('(min-width: 321px, max-width: 375px)');
+  // const mobileLarge = useMediaQuery('(min-width: 376px, max-width: 414px)');
+  // const mobileXLarge = useMediaQuery('(min-width: 415px, max-width: 500px)');
+  // const desktopSmall = useMediaQuery('(min-width: 501px, max-width: 700px)');
+  // const desktopMedium = useMediaQuery('(min-width: 701px, max-width: 900px)');
+  // const desktopLarge = useMediaQuery('(min-width: 901px)');
 
 
   // console.log(mobileSmall);
@@ -295,8 +295,8 @@ USAMap.propTypes = {
 
 USAMap.defaultProps = {
   onClick: () => {},
-  width: 959,  // default: 959
-  height: 593,  // default: 593
+  // width:,  // default: 959
+  height: 450,  // default: 593
   defaultFill: "#D3D3D3",
   title: "",
   customize: {}

@@ -1,3 +1,6 @@
+/* eslint react/jsx-no-comment-textnodes: 0 */
+/* eslint array-callback-return: 0 */
+
 import React from 'react';
 import cunaCandidates from '../election-data/cunaCandidates';
 import redCheck from '../Assets/red-checkmark.gif';
@@ -15,8 +18,8 @@ const StateResultView = ({state}) => {
         <p>
           {
             winner
-            ? <img src={redCheck} alt="image" style={{width: 20, float: "left", marginRight: 5}} />
-            : <img src={xMark} alt="image" style={{width: 12, float: "left", marginRight: 13}} />
+            ? <img src={redCheck} alt="" style={{width: 20, float: "left", marginRight: 5}} />
+            : <img src={xMark} alt="" style={{width: 12, float: "left", marginRight: 13}} />
           }
         </p>
     );
@@ -34,6 +37,7 @@ const StateResultView = ({state}) => {
       return (
           <div>
             {winOrLose(candidate.winner)}
+
             <p>{candidate.name} // {chamber[candidate.chamber]} // District {candidate.district}</p>
           </div>
       );

@@ -69,27 +69,3 @@ const cunaCandidates = {
 
 export default cunaCandidates;
 
-
-// AL: {
-//   senate: {
-//     dem: ["Doug Jones (Incumbent)"],
-//     rep: ['Jeff Sessions']
-//   },
-//   house: {
-//     1: {
-//       dem: ["Kiani Gardner"],
-//       rep: ["Wes Lambert"],
-//     },
-//     2: {
-//       dem: ["Phyllis Harvey-Hall"],
-//       rep:  ["Jessica Taylor"]
-//     },
-//     3: {
-//       dem: ["Adia Winfrey"],
-//       rep: ["Mike Rogers (Incumbent)"]
-//     },
-//     5: {
-//       rep: ["Mo Brooks (Incumbent)"]
-//     }
-//   }
-// },

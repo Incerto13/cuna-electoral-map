@@ -1,4 +1,4 @@
-import cunaCandidates from './cunaCandidates_old';
+import cunaCandidates from './cunaCandidates';
 import resultTracker from './resultTracker';
 
 const electionData = {
