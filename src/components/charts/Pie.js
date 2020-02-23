@@ -5,7 +5,6 @@ import analytics from '../../election-data/analytics';
 const { cunaSupportSuccessRate } = analytics;
 
 
-
 const state = {
   labels: ['CUNA-League supported victories'],
   datasets: [
@@ -19,7 +18,7 @@ const state = {
       '#175000',
       '#003350',
       ],
-      data: [cunaSupportSuccessRate(), 100-cunaSupportSuccessRate()]
+      data: [cunaSupportSuccessRate().successRate, 100-cunaSupportSuccessRate().successRate]
     }
   ]
 }

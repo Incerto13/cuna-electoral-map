@@ -24,7 +24,14 @@ const cunaSupportSuccessRate = () => {
       supportedCandidates.push(candidate);
     }
   }
-  return (winners.length / supportedCandidates.length).toFixed(2) * 100;
+  // return (winners.length / supportedCandidates.length).toFixed(2) * 100;
+  const results = {
+    totalRaces: supportedCandidates.length,
+    wonRaces: winners.length,
+    successRate: (winners.length / supportedCandidates.length).toFixed(2) * 100
+  };
+    return results;
+
 }
 
 export default cunaSupportSuccessRate;

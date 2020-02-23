@@ -107,12 +107,20 @@ class App extends Component {
                   </p>
                 </div>
 
+
                 <div style={{ backgroundColor: '#f2f2f2' }}>
                   <div>
                     <div style={{ width: 250, backgroundColor: "white" }}><CunaCandidateSuccess/></div>
                   </div>
                 </div>
-
+                <div>
+                    <table style={{ width: '50%'}}>
+                    <tr style={{fontSize: 50, backgroundColor: 'white' }}>
+                      <td style={{ color: 'green'}}>{analytics.cunaSupportSuccessRate().wonRaces}</td>
+                      <td style={{ color: 'blue'}}>{analytics.cunaSupportSuccessRate().totalRaces}</td>
+                    </tr>
+                  </table>
+                </div>
               </div>
           </div>
       </div>
