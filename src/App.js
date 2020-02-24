@@ -64,7 +64,7 @@ class App extends Component {
       <div className="body" style={{ display: 'flex' }}>
           <div className="App">
             <div><USAMap customize={this.statesCustomConfig()} onClick={this.mapHandler}/></div>
-            <img style={{ float: "right", width: 100 }} src={mapLegend}/>
+            <img style={{ float: "right", width: 100, marginBottom: 0 }} src={mapLegend}/>
             <br/>
             <br/>
             <a href="https://www.cuna.org/elections2020/"
@@ -77,7 +77,11 @@ class App extends Component {
               title={
                   !this.state.selectedState.resultFinal
                   ? <div><h1>{this.state.selectedState.fullName}</h1></div>
-                  : <div><h1>{this.state.selectedState.fullName}</h1>2020 Statewide Primary Results</div>
+                  : <div>
+                      <h1>{this.state.selectedState.fullName}</h1>Statewide Primary Results from {this.state.selectedState.primaryDate}
+                    </div>
+
+
               }
               onCancel={this.handleCancel}
               footer={[
@@ -120,12 +124,12 @@ class App extends Component {
                 </div>
                 {/* end of chart */}
                 <div>
-                  <table style={{ width: 250, marginTop: 30 }}>
+                  <table style={{ width: 250, marginTop: 40 }}>
                       <tr style={{ height: 15, backgroundColor: "white" }}>
                         <td></td>
                         <td></td>
                       </tr>
-                      <tr style={{fontSize: 50, fontWeight: 700, height: 2, backgroundColor: 'white', borderCollapse: "collapse" }}>
+                      <tr style={{fontSize: 50, fontWeight: 700, padding: "auto", backgroundColor: 'white', borderCollapse: "collapse" }}>
                         <td style={{  width: "50%", color: '#42c393', paddingLeft: 15,  /*border: "solid" */ borderRight: '1px dotted #CCCCCC' }}>{analytics.cunaSupportSuccessRate().totalRaces}</td>
                         <td style={{ color: 'steelblue', paddingLeft: 15, /*border: "solid" */}}>{analytics.cunaSupportSuccessRate().wonRaces}</td>
                       </tr>
