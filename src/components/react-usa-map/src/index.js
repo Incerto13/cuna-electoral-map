@@ -107,6 +107,7 @@ export const USAMap = (props) => {
         </g>
         {/* end of original blank map */}
         {/* TODO: add a click handler for all of these labels below that  */}
+
         <g id="text" font-family="Helvetica Neue" font-weight="bold">
           <g font-size="14">
             <text id="AKn" x="110" y="504" onClick={clickHandler} data-name={"AK"}>
@@ -264,6 +265,7 @@ export const USAMap = (props) => {
             <text id="DCn" x="864" y="327" onClick={clickHandler} data-name={"DC"}>
               DC
             </text>
+
           </g>
         </g>
         <path
@@ -297,7 +299,7 @@ USAMap.defaultProps = {
   onClick: () => {},
   // width:,  // default: 959
   height: 450,  // default: 593
-  defaultFill: "#D3D3D3",
+  defaultFill: "#CCCCCC",
   title: "",
   customize: {}
 };

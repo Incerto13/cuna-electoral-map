@@ -15,20 +15,21 @@ export const concludedStates = () => {
 
 const cunaSupportSuccessRate = () => {
   const winners = [];
-  const supportedCandidates = [];
+  const losers = [];
   for (let state of concludedStates()) {
     for (let candidate of cunaCandidates[state]) {
       if (candidate.winner) {
         winners.push(candidate);
       }
-      supportedCandidates.push(candidate);
+      else if (!candidate.winner && !candidate.openSeat && !candidate.runOff) {
+        losers.push(candidate);
+      }
     }
   }
-  // return (winners.length / supportedCandidates.length).toFixed(2) * 100;
   const results = {
-    totalRaces: supportedCandidates.length,
+    totalRaces: losers.length + winners.length,
     wonRaces: winners.length,
-    successRate: (winners.length / supportedCandidates.length).toFixed(2) * 100
+    successRate: (winners.length / (losers.length + winners.length)).toFixed(2) * 100
   };
     return results;
 

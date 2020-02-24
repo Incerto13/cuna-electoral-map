@@ -9,11 +9,8 @@ import stateFillColor from './components/stateFillColor';
 import { CunaCandidateSuccess } from './components/charts/Pie';
 import analytics from './election-data/analytics';
 import StateResultView from './components/StateResultView';
-import './App.css';
+import mapLegend from './Assets/map-legend.jpg'
 
-// import concludedStates from './election-data/analytics/utils/'
-
-console.log(analytics.cunaSupportSuccessRate());
 
 class App extends Component {
   state = {
@@ -66,7 +63,15 @@ class App extends Component {
     return (
       <div className="body" style={{ display: 'flex' }}>
           <div className="App">
-            <USAMap customize={this.statesCustomConfig()} onClick={this.mapHandler}  />
+            <div><USAMap customize={this.statesCustomConfig()} onClick={this.mapHandler}/></div>
+            <img style={{ float: "right", width: 100 }} src={mapLegend}/>
+            <br/>
+            <br/>
+            <a href="https://www.cuna.org/elections2020/"
+              style={{ color: "red", textDecoration: "underline", marginLeft: 20 }}>
+                View full list of results by state
+            </a>
+
             <Modal
               visible={this.state.modalVisible}
               title={
@@ -107,23 +112,37 @@ class App extends Component {
                   </p>
                 </div>
 
-
                 <div style={{ backgroundColor: '#f2f2f2' }}>
                   <div>
                     <div style={{ width: 250, backgroundColor: "white" }}><CunaCandidateSuccess/></div>
                   </div>
+                  *As of {electionData.resultTracker.currentDate}
                 </div>
+                {/* end of chart */}
                 <div>
-                    <table style={{ width: '50%'}}>
-                    <tr style={{fontSize: 50, backgroundColor: 'white' }}>
-                      <td style={{ color: 'green'}}>{analytics.cunaSupportSuccessRate().wonRaces}</td>
-                      <td style={{ color: 'blue'}}>{analytics.cunaSupportSuccessRate().totalRaces}</td>
-                    </tr>
+                  <table style={{ width: 250, marginTop: 30 }}>
+                      <tr style={{ height: 15, backgroundColor: "white" }}>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr style={{fontSize: 50, fontWeight: 700, height: 2, backgroundColor: 'white', borderCollapse: "collapse" }}>
+                        <td style={{  width: "50%", color: '#42c393', paddingLeft: 15,  /*border: "solid" */ borderRight: '1px dotted #CCCCCC' }}>{analytics.cunaSupportSuccessRate().totalRaces}</td>
+                        <td style={{ color: 'steelblue', paddingLeft: 15, /*border: "solid" */}}>{analytics.cunaSupportSuccessRate().wonRaces}</td>
+                      </tr>
+                      <tr style={{ height: 15, fontSize: 10, backgroundColor: "white", overflow: "hidden" }}>
+                        <td style={{ paddingLeft: 15, borderRight: '1px dotted #CCCCCC' }}>candidates supported</td>
+                        <td style={{ paddingLeft: 15 }}>candidates won</td>
+                      </tr>
+                      <tr style={{ height: 15, backgroundColor: "white" }}>
+                        <td></td>
+                        <td></td>
+                      </tr>
                   </table>
                 </div>
               </div>
           </div>
       </div>
+
     );
   }
 }

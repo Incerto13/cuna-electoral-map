@@ -1,4 +1,5 @@
 const resultTracker = {
+  currentDate: '02/21/2020',
   AL: {
     primaryDate: '3/3/2020',
     resultFinal: true,
@@ -8,7 +9,7 @@ const resultTracker = {
     resultFinal: false,
   },
   AZ: {
-    primaryDate: '8/4/2020',
+    primaryDate: '3/17/2020',
     resultFinal: false
   },
   AR: {
@@ -28,7 +29,7 @@ const resultTracker = {
     resultFinal: false
   },
   DC: {
-    primaryDate: '',
+    primaryDate: '6/2/2020',
     resultFinal: false
   },
   DE: {
@@ -72,7 +73,7 @@ const resultTracker = {
     resultFinal: false
   },
   LA: {
-    primaryDate: 'N/A',
+    primaryDate: '11/3/2020',
     resultFinal: false
   },
   ME: {
@@ -84,7 +85,7 @@ const resultTracker = {
     resultFinal: false
   },
   MA: {
-    primaryDate: '9/1/2020',
+    primaryDate: '9/15/2020',
     resultFinal: false
   },
   MI: {
@@ -133,14 +134,14 @@ const resultTracker = {
   },
   NC: {
     primaryDate: '3/3/2020',
-    resultFinal: false
+    resultFinal: true
   },
   ND: {
     primaryDate: '6/9/2020',
     resultFinal: false
   },
   OH: {
-    primaryDate: 'N/A',
+    primaryDate: '3/17/2020',
     resultFinal: false
   },
   OK: {
@@ -173,10 +174,10 @@ const resultTracker = {
   },
   TX: {
     primaryDate: '3/3/2020',
-    resultFinal: false
+    resultFinal: true
   },
   UT: {
-    primaryDate: '6/30/2020',
+    primaryDate: '6/23/2020',
     resultFinal: false
   },
   VT: {
