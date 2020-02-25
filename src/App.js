@@ -11,6 +11,9 @@ import analytics from './election-data/analytics';
 import StateResultView from './components/StateResultView';
 import mapLegend from './Assets/map-legend.jpg'
 
+const wideScreen = window.innerWidth >= 900;
+const mediumScreen = window.innerWidth > 350 && window.innerWidth < 900;
+const narrowScreen = window.innerWidth <= 350;
 
 class App extends Component {
   state = {
@@ -60,17 +63,22 @@ class App extends Component {
 
 
   render() {
+    console.log(window.innerWidth);
+    console.log(wideScreen || mediumScreen || narrowScreen);
     return (
-      <div className="body" style={{ display: 'flex' }}>
-          <div className="App">
-            <div><USAMap customize={this.statesCustomConfig()} onClick={this.mapHandler}/></div>
-            <img style={{ float: "right", width: 100, marginBottom: 0 }} src={mapLegend}/>
-            <br/>
-            <br/>
+      <div  style={{ width: '100%', display: !narrowScreen ? 'flex' : '' }}>
+          <div>
+            <div>
+              <USAMap customize={this.statesCustomConfig()} onClick={this.mapHandler}/>
+              </div>
             <a href="https://www.cuna.org/elections2020/"
-              style={{ color: "red", textDecoration: "underline", marginLeft: 20 }}>
-                View full list of results by state
+            style={{ color: "red", textDecoration: "underline", marginLeft: 20, fontSize: 6, marginTop: 0 }}>
+              View full list of results by state
             </a>
+            <img style={{ float: "right", width: wideScreen ? 100 : 50, marginBottom: 0 }} src={mapLegend}/>
+            <br/>
+            <br/>
+
 
             <Modal
               visible={this.state.modalVisible}
@@ -106,36 +114,36 @@ class App extends Component {
           {/* Charts begin here */}
           </div>
 
-          <div className="infopanel" style={{ width: 400, backgroundColor: '#f2f2f2' }}>
-              <div style={{ marginLeft: 30 }}>
-                <div className="text" style={{ maxWidth: 300 }}>
-                  <h2><b>Primary wins to date</b></h2>
-                  <p>
+          <div className="infopanel" style={{ width: 200, backgroundColor: '#f2f2f2' }}>
+              <div style={{ marginLeft: 20 }}>
+                <div className="text" style={{ width: 200 }}>
+                  <h4><b>Primary wins to date</b></h4>
+                  <p style={{ fontSize: 8, textAlign: 'left', width: 150 }}>
                     From Super Tuesday to Election Day, here is a look at our
                     progress in securing a credit union majority in November.
                   </p>
                 </div>
 
-                <div style={{ backgroundColor: '#f2f2f2' }}>
+                <div style={{ backgroundColor: '#f2f2f2', fontSize: 8 }}>
                   <div>
-                    <div style={{ width: 250, backgroundColor: "white" }}><CunaCandidateSuccess/></div>
+                    <div style={{ width: 150, backgroundColor: "white" }}><CunaCandidateSuccess/></div>
                   </div>
                   *As of {electionData.resultTracker.currentDate}
                 </div>
                 {/* end of chart */}
                 <div>
-                  <table style={{ width: 250, marginTop: 40 }}>
+                  <table style={{ width: 150, marginTop: 30 }}>
                       <tr style={{ height: 15, backgroundColor: "white" }}>
                         <td></td>
                         <td></td>
                       </tr>
-                      <tr style={{fontSize: 50, fontWeight: 700, padding: "auto", backgroundColor: 'white', borderCollapse: "collapse" }}>
-                        <td style={{  width: "50%", color: '#42c393', paddingLeft: 15,  /*border: "solid" */ borderRight: '1px dotted #CCCCCC' }}>{analytics.cunaSupportSuccessRate().totalRaces}</td>
-                        <td style={{ color: 'steelblue', paddingLeft: 15, /*border: "solid" */}}>{analytics.cunaSupportSuccessRate().wonRaces}</td>
+                      <tr style={{fontSize: 50, fontWeight: 700, padding: "auto", backgroundColor: 'white', overflow: "hide" }}>
+                        <td style={{  width: "50%", color: '#42c393', paddingLeft: '10%',  /*border: "solid" */ borderRight: '1px dotted #CCCCCC' }}>{analytics.cunaSupportSuccessRate().totalRaces}</td>
+                        <td style={{ color: 'steelblue', paddingLeft: '10%', /*border: "solid" */}}>{analytics.cunaSupportSuccessRate().wonRaces}</td>
                       </tr>
-                      <tr style={{ height: 15, fontSize: 10, backgroundColor: "white", overflow: "hidden" }}>
-                        <td style={{ paddingLeft: 15, borderRight: '1px dotted #CCCCCC' }}>candidates supported</td>
-                        <td style={{ paddingLeft: 15 }}>candidates won</td>
+                      <tr style={{ height: 15, fontSize: 10, backgroundColor: "white", textAlign: 'center', overflow: "hidden" }}>
+                        <td style={{ padding: '0 12%, 0  12%', borderRight: '1px dotted #CCCCCC' }}>candidates supported</td>
+                        <td style={{ padding: '0 12%, 0  12%' }}>candidates won</td>
                       </tr>
                       <tr style={{ height: 15, backgroundColor: "white" }}>
                         <td></td>

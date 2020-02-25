@@ -5,6 +5,9 @@ import data from "./data/usa-map-dimensions";
 import USAState from "./components/USAState";
 import './index.css';
 
+const wideScreen = window.innerWidth >= 900;
+const mediumScreen = window.innerWidth > 350 && window.innerWidth < 900;
+const narrowScreen = window.innerWidth <= 350;
 
 // const styles = {
 //   width: {
@@ -297,8 +300,9 @@ USAMap.propTypes = {
 
 USAMap.defaultProps = {
   onClick: () => {},
-  // width:,  // default: 959
-  height: 450,  // default: 593
+  // width: ,   // default: 959
+  height: mediumScreen ? 240 : 300,  // default: 593
+  // height: 300,
   defaultFill: "#CCCCCC",
   title: "",
   customize: {}
