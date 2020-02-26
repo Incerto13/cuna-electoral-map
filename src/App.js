@@ -27,12 +27,20 @@ class App extends Component {
       resultFinal: false,
       primaryDate: ''
     },
+    wideScreen: window.innerWidth >= 900,
+    mediumScreen: window.innerWidth > 350 && window.innerWidth < 900,
+    narrowScreen: window.innerWidth <= 350,
     analytics: {
     }
   };
 
+  componentDidMount = async () => {
+    window.addEventListener("resize", this.resize.bind(this));
+    this.resize();
+  }
+
   /* mandatory */
-  mapHandler = async (event) => {
+  mapHandler = (event) => {
     const state = event.target.dataset.name;
     this.setState({
       selectedState: {
@@ -62,33 +70,53 @@ class App extends Component {
     this.setState({ modalVisible: false });
   };
 
-  modalCustomFooter = () => {
-    //const state = this.state.selectedState.abbrName;
-    //const stateResults = electionData.resultTracker[state];
-    // const stateNotes = stateResults.notes ? stateResults.notes : '';
-    console.log('whaaaaaa?');
-    console.log(electionData.resultTracker[this.state.selectedState.abbrName].notes);
-  // return <p>holler again!!! {this.state.selectedState ? this.state.selectedState : 'race condition'}</p>
-    // this.state.selectedState;
-    // {electionData.resultTracker[this.state.selectedState.abbrName].notes}
-    // return this.state.selectedState['AL'];
-  };
+  resize = () => {
+    if (window.innerWidth >= 900) {
+      if (!this.state.wideScreen) {
+        window.location.reload();
+      }
+      this.setState({
+        wideScreen: true,
+        mediumScreen: false,
+        narrowScreen: false
+      });
+    } else if (window.innerWidth <= 350) {
+      if (!this.state.narrowScreen) {
+        window.location.reload();
+      }
+      this.setState({
+        wideScreen: false,
+        mediumScreen: false,
+        narrowScreen: true
+      });
+    } else {
+      if (!this.state.mediumScreen) {
+        window.location.reload();
+      }
+      this.setState({
+        wideScreen: false,
+        mediumScreen: true,
+        narrowScreen: false
+      });
+    }
+  }
+
 
 
   render() {
     console.log(window.innerWidth);
-    console.log(wideScreen ? 'wideScreen' : mediumScreen ? 'mediumScreen' : narrowScreen);
+    console.log(this.state.wideScreen ? 'wideScreen' : this.state.mediumScreen ? 'mediumScreen' : 'narrowScreen');
     return (
-      <div  style={{ width: '100%', display: !narrowScreen ? 'flex' : '' }}>
+      <div  style={{ marginTop: -75, marginRight: 0, width: '100%', display: !narrowScreen ? 'flex' : '' }}>
           <div>
             <div>
               <USAMap customize={this.statesCustomConfig()} onClick={this.mapHandler}/>
               </div>
-            <a href="https://www.cuna.org/Advocacy/Actions/Elections/2020-Elections/"
-            style={{ color: "red", textDecoration: "underline", marginLeft: 20, fontSize: 6, marginTop: 0 }}>
+            {/* <a href="https://www.cuna.org/Advocacy/Actions/Elections/2020-Elections/"
+            style={{ color: "red", textDecoration: "underline", marginLeft: 20, fontSize: 10, marginTop: 0 }}>
               View full list of results by state
             </a>
-            <img alt="legend" style={{ float: "right", width: wideScreen ? 80 : 50, marginBottom: 0 }} src={mapLegend}/>
+            <img alt="legend" style={{ float: "right", width: wideScreen ? 80 : 50, marginBottom: 0 }} src={mapLegend}/> */}
 
 
             <Modal
@@ -126,32 +154,32 @@ class App extends Component {
           {/* Charts begin here */}
           </div>
 
-          <div className="infopanel" style={{ width: 200, backgroundColor: '#f2f2f2' }}>
+          <div className="infopanel" style={{ width: 255, backgroundColor: '#f2f2f2' }}>
               <div style={{ marginLeft: 20 }}>
                 <div className="text" style={{ width: 200 }}>
-                  <h4><b>Primary wins to date</b></h4>
-                  <p style={{ fontSize: 8, textAlign: 'left', width: 150 }}>
+                  <h4 style={{fontSize: 20, marginLeft: -22 }}><b>Primary wins to date</b></h4>
+                  <p style={{ fontSize: 12, marginLeft: -22, textAlign: 'left', width: 190 }}>
                     From Super Tuesday to Election Day, here is a look at our
                     progress in securing a credit union majority in November.
                   </p>
                 </div>
 
-                <div style={{ backgroundColor: '#f2f2f2', fontSize: 8 }}>
-                  <div>
-                    <div style={{ width: 150, backgroundColor: "white" }}><CunaCandidateSuccess/></div>
+                <div style={{ backgroundColor: '#f2f2f2', fontSize: 15 }}>
+                    <div style={{ marginTop: 22, width: 195, backgroundColor: "white", border: '0.75px solid gray' }}><CunaCandidateSuccess/></div>
+                  <div style={{ width: 200, marginLeft: -40 }}>
+                    *As of {electionData.resultTracker.currentDate}
                   </div>
-                  *As of {electionData.resultTracker.currentDate}
                 </div>
                 {/* end of chart */}
                 <div>
-                  <table style={{ width: 150, marginTop: 30 }}>
-                      <tr style={{ height: 15, backgroundColor: "white" }}>
+                  <table style={{ width: 195, marginTop: 22 }}>
+                      <tr style={{ height: 20, backgroundColor: "white" }}>
                         <td></td>
                         <td></td>
                       </tr>
                       <tr style={{fontSize: 50, fontWeight: 700, padding: "auto", backgroundColor: 'white', overflow: "hide" }}>
-                        <td style={{  width: "50%", color: '#42c393', paddingLeft: '10%',  /*border: "solid" */ borderRight: '1px dotted #CCCCCC' }}>{analytics.cunaSupportSuccessRate().totalRaces}</td>
-                        <td style={{ color: 'steelblue', paddingLeft: '10%', /*border: "solid" */}}>{analytics.cunaSupportSuccessRate().wonRaces}</td>
+                        <td style={{  width: "50%", color: '#42c393',  /*border: "solid" */ borderRight: '1px dotted #CCCCCC' }}>{analytics.cunaSupportSuccessRate().totalRaces}</td>
+                        <td style={{ color: 'steelblue', /*border: "solid" */}}>{analytics.cunaSupportSuccessRate().wonRaces}</td>
                       </tr>
                       <tr style={{ height: 15, fontSize: 10, backgroundColor: "white", textAlign: 'center', overflow: "hidden" }}>
                         <td style={{ padding: '0 12%, 0  12%', borderRight: '1px dotted #CCCCCC' }}>candidates supported</td>

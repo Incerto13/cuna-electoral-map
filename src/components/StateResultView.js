@@ -21,9 +21,9 @@ const StateResultView = ({state}) => {
             candidate.winner
             ? <img src={greenCheck} alt="" style={{width: 20, float: "left", marginRight: 5 }} />
             : candidate.openSeat
-            ? <img src={squareBlock} alt="" style={{width: 15, float: "left", marginRight: 10, paddingBottom: -15 }} />
+            ? <img src={squareBlock} alt="" style={{width: 15, float: "left", marginRight: 10 }} />
             // candidate lost
-            : <img src={xMark} alt="" style={{width: 12, float: "left", marginRight: 13, paddingBottom: -35 }} />
+            : <img src={xMark} alt="" style={{width: 12, float: "left", marginRight: 13 }} />
           }
         </p>
     );

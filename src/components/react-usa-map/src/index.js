@@ -9,66 +9,9 @@ const wideScreen = window.innerWidth >= 900;
 const mediumScreen = window.innerWidth > 350 && window.innerWidth < 900;
 const narrowScreen = window.innerWidth <= 350;
 
-// const styles = {
-//   width: {
-//     mobileSmall: 300,
-//     mobileMedium: 320,
-//     mobileLarge: 376,
-//     mobileXLarge: 415,
-//   }
-// };
 
-// const styles = () => {
-
-//   let screenSize = '';
-//   const width = {
-//     mobileSmall: 250,
-//     mobileMedium: 300,
-//     mobileLarge: 350,
-//     mobileXLarge: 400,
-//     desktopSmall: 450,
-//     desktopMedium: 650,
-//     desktopLarge: 850
-//   };
-
-//   if (mobileSmall) {
-//     screenSize = 'mobileSmall';
-//   } else if (mobileMedium) {
-//     screenSize = 'mobileMedium';
-//   } else if (mobileLarge) {
-//     screenSize = 'mobileLarge';
-//   } else if (mobileXlarge) {
-//     screenSizee = 'mobileXLarge';
-//   } else if (desktopSmall) {
-//     screenSize = 'desktopSmall';
-//   } else if (desktopMedium) {
-//     screenSize = 'desktopMedium';
-//   } else if (desktopLarge) {
-//     screenSize = 'desktopLarge';
-//   }
-
-//   return {
-//     width:[screenSize]
-//   }
-// }
 
 export const USAMap = (props) => {
-  // const mobileSmall = useMediaQuery('(max-width: 320px)');
-  // const mobileMedium = useMediaQuery('(min-width: 321px, max-width: 375px)');
-  // const mobileLarge = useMediaQuery('(min-width: 376px, max-width: 414px)');
-  // const mobileXLarge = useMediaQuery('(min-width: 415px, max-width: 500px)');
-  // const desktopSmall = useMediaQuery('(min-width: 501px, max-width: 700px)');
-  // const desktopMedium = useMediaQuery('(min-width: 701px, max-width: 900px)');
-  // const desktopLarge = useMediaQuery('(min-width: 901px)');
-
-
-  // console.log(mobileSmall);
-  // console.log(mobileMedium);
-  // console.log(mobileXLarge);
-  // console.log(desktopSmall);
-  // console.log(desktopMedium);
-  // console.log(desktopLarge);
-
 
   const clickHandler = (stateAbbreviation) => {
     props.onClick(stateAbbreviation);
@@ -301,7 +244,7 @@ USAMap.propTypes = {
 USAMap.defaultProps = {
   onClick: () => {},
   // width: ,   // default: 959
-  height: mediumScreen ? 240 : 300,  // default: 593
+  height: mediumScreen ? 280 : 500,  // default: 593
   // height: 300,
   defaultFill: "#CCCCCC",
   title: "",

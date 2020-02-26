@@ -6,7 +6,7 @@ const { cunaSupportSuccessRate } = analytics;
 
 
 const state = {
-  labels: ['CUNA-League suppported victories'],
+  labels: ['CUNA suppported victories'],
   datasets: [
     {
       backgroundColor: [
@@ -29,8 +29,8 @@ export class CunaCandidateSuccess extends React.Component {
       <div style={{ }}>
         <Doughnut
           data={state}
-          height={125}
-          width={300}
+          height={200}
+          width={400}
           options={{
             responsive: true,
             maintainAspectRatio: false,
@@ -44,7 +44,7 @@ export class CunaCandidateSuccess extends React.Component {
               display: true,
               position:'bottom',
               labels: {
-                fontSize: 6,
+                fontSize: 10.5,
               }
             },
             tooltips: {
