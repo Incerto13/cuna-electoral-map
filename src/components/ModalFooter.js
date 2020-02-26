@@ -2,7 +2,7 @@ import React from 'react';
 
 const ModalFooter = ({notes}) => {
 
-  return <p>{notes}</p>
+  return <p><i>{notes}</i></p>
 
 }
 
