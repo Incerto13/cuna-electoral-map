@@ -6,7 +6,6 @@ import cunaCandidates from '../election-data/cunaCandidates';
 import greenCheck from '../Assets/green-checkmark.png';
 import xMark from '../Assets/x-mark.png';
 import squareBlock from '../Assets/square-block.png';
-import asterisk from '../Assets/asterisk.png'
 
 const chamber = {
   senate: "Senate",
@@ -23,7 +22,7 @@ const StateResultView = ({state}) => {
             ? <img src={greenCheck} alt="" style={{width: 20, float: "left", marginRight: 5 }} />
             : candidate.openSeat
             ? <img src={squareBlock} alt="" style={{width: 15, float: "left", marginRight: 10, paddingBottom: -15 }} />
-            // they lost
+            // candidate lost
             : <img src={xMark} alt="" style={{width: 12, float: "left", marginRight: 13, paddingBottom: -35 }} />
           }
         </p>

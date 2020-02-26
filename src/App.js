@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import USAMap from "./components/react-usa-map/src/index"; // 'react-usa-map
 import 'antd/dist/antd.css';
-import { Modal, Card } from 'antd';
+import { Modal } from 'antd';
 import electionData from './election-data/';
 import stateFullName from './utils/stateFullName';
 import stateFillColor from './components/stateFillColor';
@@ -88,7 +88,7 @@ class App extends Component {
             style={{ color: "red", textDecoration: "underline", marginLeft: 20, fontSize: 6, marginTop: 0 }}>
               View full list of results by state
             </a>
-            <img style={{ float: "right", width: wideScreen ? 80 : 50, marginBottom: 0 }} src={mapLegend}/>
+            <img alt="legend" style={{ float: "right", width: wideScreen ? 80 : 50, marginBottom: 0 }} src={mapLegend}/>
 
 
             <Modal
