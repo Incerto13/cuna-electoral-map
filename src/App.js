@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import USAMap from "./components/react-usa-map/src/index"; // 'react-usa-map
 import 'antd/dist/antd.css';
-import { Modal } from 'antd';
+import { Modal, Card } from 'antd';
 import electionData from './election-data/';
 import stateFullName from './utils/stateFullName';
 import stateFillColor from './components/stateFillColor';
@@ -10,6 +10,7 @@ import { CunaCandidateSuccess } from './components/charts/Pie';
 import analytics from './election-data/analytics';
 import StateResultView from './components/StateResultView';
 import mapLegend from './Assets/map-legend.jpg'
+import ModalFooter from './components/ModalFooter';
 
 const wideScreen = window.innerWidth >= 900;
 const mediumScreen = window.innerWidth > 350 && window.innerWidth < 900;
@@ -31,7 +32,7 @@ class App extends Component {
   };
 
   /* mandatory */
-  mapHandler = (event) => {
+  mapHandler = async (event) => {
     const state = event.target.dataset.name;
     this.setState({
       selectedState: {
@@ -61,23 +62,33 @@ class App extends Component {
     this.setState({ modalVisible: false });
   };
 
+  modalCustomFooter = () => {
+    //const state = this.state.selectedState.abbrName;
+    //const stateResults = electionData.resultTracker[state];
+    // const stateNotes = stateResults.notes ? stateResults.notes : '';
+    console.log('whaaaaaa?');
+    console.log(electionData.resultTracker[this.state.selectedState.abbrName].notes);
+  // return <p>holler again!!! {this.state.selectedState ? this.state.selectedState : 'race condition'}</p>
+    // this.state.selectedState;
+    // {electionData.resultTracker[this.state.selectedState.abbrName].notes}
+    // return this.state.selectedState['AL'];
+  };
+
 
   render() {
     console.log(window.innerWidth);
-    console.log(wideScreen || mediumScreen || narrowScreen);
+    console.log(wideScreen ? 'wideScreen' : mediumScreen ? 'mediumScreen' : narrowScreen);
     return (
       <div  style={{ width: '100%', display: !narrowScreen ? 'flex' : '' }}>
           <div>
             <div>
               <USAMap customize={this.statesCustomConfig()} onClick={this.mapHandler}/>
               </div>
-            <a href="https://www.cuna.org/elections2020/"
+            <a href="https://www.cuna.org/Advocacy/Actions/Elections/2020-Elections/"
             style={{ color: "red", textDecoration: "underline", marginLeft: 20, fontSize: 6, marginTop: 0 }}>
               View full list of results by state
             </a>
-            <img style={{ float: "right", width: wideScreen ? 100 : 50, marginBottom: 0 }} src={mapLegend}/>
-            <br/>
-            <br/>
+            <img style={{ float: "right", width: wideScreen ? 80 : 50, marginBottom: 0 }} src={mapLegend}/>
 
 
             <Modal
@@ -88,11 +99,11 @@ class App extends Component {
                   : <div>
                       <h1>{this.state.selectedState.fullName}</h1>Statewide Primary Results from {this.state.selectedState.primaryDate}
                     </div>
-
-
               }
+
               onCancel={this.handleCancel}
               footer={[
+                this.state.modalVisible && <ModalFooter notes={electionData.resultTracker[this.state.selectedState.abbrName].notes} />
               ]}
             >
 
@@ -109,6 +120,7 @@ class App extends Component {
                 )
 
               }
+
             </Modal>
 
           {/* Charts begin here */}

@@ -5,8 +5,8 @@ const path = require('path');
 const webpack = require('webpack');
 const resolve = require('resolve');
 const PnpWebpackPlugin = require('pnp-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // <-- added for inline build
+const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin'); // <-- added for inline build
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -522,7 +522,7 @@ module.exports = function(webpackEnv) {
           },
           isEnvProduction
             ? {
-                inlineSource: '.(js|css)$',
+                inlineSource: '.(js|css)$', // <-- added for inline build
                 minify: {
                   removeComments: true,
                   collapseWhitespace: true,
@@ -544,7 +544,7 @@ module.exports = function(webpackEnv) {
       // https://github.com/facebook/create-react-app/issues/5358
       isEnvProduction &&
         shouldInlineRuntimeChunk &&
-        new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin),
+        new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin), // <-- added for inline build
         new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime-.+[.]js/]),
       // Makes some environment variables available in index.html.
       // The public URL is available as %PUBLIC_URL% in index.html, e.g.:

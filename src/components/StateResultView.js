@@ -21,15 +21,9 @@ const StateResultView = ({state}) => {
           {
             candidate.winner
             ? <img src={greenCheck} alt="" style={{width: 20, float: "left", marginRight: 5 }} />
-            : candidate.openSeat && candidate.runOff
-            ? <>
-                <img src={squareBlock} alt="" style={{width: 15, float: "left", marginRight: 10, paddingBottom: -15 }} />
-                <img src={asterisk} alt="" style={{width: 20, float: "left", marginRight: 5, paddingBottom: -10, }} />
-              </>
-            : candidate.openSeat && !candidate.runOff
+            : candidate.openSeat
             ? <img src={squareBlock} alt="" style={{width: 15, float: "left", marginRight: 10, paddingBottom: -15 }} />
-            : candidate.runOff && !candidate.openSeat
-            ? <img src={asterisk} alt="" style={{width: 20, float: "left", marginRight: 5, paddingBottom: -10, }} />
+            // they lost
             : <img src={xMark} alt="" style={{width: 12, float: "left", marginRight: 13, paddingBottom: -35 }} />
           }
         </p>
@@ -40,16 +34,19 @@ const StateResultView = ({state}) => {
 
     if (candidate.chamber === "senate") {
       return (
-        <div style={{ display: "flex" }}>
+        <div style={{ display: "flex", alignItems: "center" }}>
           {winOrLose(candidate)}
           <p>{candidate.name} // {chamber[candidate.chamber]}</p>
         </div>
       );
     } else if (candidate.chamber === "house") {
       return (
-          <div style={{ display: "flex" }}>
+          <div style={{ display: "flex", alignItems: "center" }}>
             {winOrLose(candidate)}
-            <p>{candidate.name} // {chamber[candidate.chamber]} // District {candidate.district}</p>
+            <p>
+              {candidate.name} // {chamber[candidate.chamber]} // District {candidate.district}
+              <span style={{ fontSize: 15 }}>{candidate.runOff ? '*' : null }</span>
+            </p>
           </div>
       );
     }

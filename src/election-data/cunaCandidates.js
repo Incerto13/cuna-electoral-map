@@ -7,28 +7,7 @@ const cunaCandidates = {
       winner: false,
       openSeat: true,
       runOff: true
-    },
-    // {
-    //   name: "TEST 3 TEST 3 (R)",
-    //   chamber: "house",
-    //   district: 2,
-    //   winner: false
-    // },
-    // {
-    //   name: "TEST 2 TEST 2 (D)",
-    //   chamber: "house",
-    //   district: 2,
-    //   winner: true,
-    //   openSeat: false,
-    //   runOff: false
-    // },
-    // {
-    //   name: "TEST 1 TEST 1 (R)",
-    //   chamber: "house",
-    //   district: 2,
-    //   winner: false,
-    //   runOff: true
-    // },
+    }
   ],
   NC: [
     {
