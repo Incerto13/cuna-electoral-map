@@ -13,8 +13,8 @@ import mapLegend from './Assets/map-legend.jpg'
 import ModalFooter from './components/ModalFooter';
 
 const wideScreen = window.innerWidth >= 900;
-const mediumScreen = window.innerWidth > 350 && window.innerWidth < 900;
-const narrowScreen = window.innerWidth <= 350;
+const mediumScreen = window.innerWidth > 560 && window.innerWidth < 900;
+const narrowScreen = window.innerWidth <= 560;
 
 class App extends Component {
   state = {
@@ -28,8 +28,8 @@ class App extends Component {
       primaryDate: ''
     },
     wideScreen: window.innerWidth >= 900,
-    mediumScreen: window.innerWidth > 350 && window.innerWidth < 900,
-    narrowScreen: window.innerWidth <= 350,
+    mediumScreen: window.innerWidth > 560 && window.innerWidth < 900,
+    narrowScreen: window.innerWidth <= 560,
     analytics: {
     }
   };
@@ -80,7 +80,7 @@ class App extends Component {
         mediumScreen: false,
         narrowScreen: false
       });
-    } else if (window.innerWidth <= 350) {
+    } else if (window.innerWidth <= 560) {
       if (!this.state.narrowScreen) {
         window.location.reload();
       }
@@ -89,7 +89,7 @@ class App extends Component {
         mediumScreen: false,
         narrowScreen: true
       });
-    } else {
+    } else if (window.innerWidth > 560 && window.innerWidth < 900) {
       if (!this.state.mediumScreen) {
         window.location.reload();
       }
@@ -102,12 +102,11 @@ class App extends Component {
   }
 
 
-
   render() {
     console.log(window.innerWidth);
     console.log(this.state.wideScreen ? 'wideScreen' : this.state.mediumScreen ? 'mediumScreen' : 'narrowScreen');
     return (
-      <div  style={{ marginTop: -75, marginRight: 0, width: '100%', display: !narrowScreen ? 'flex' : '' }}>
+      <div  style={{ marginTop: -75, marginRight: 0, width: '100%', display: this.state.narrowScreen ? '' : 'flex' }}>
           <div>
             <div>
               <USAMap customize={this.statesCustomConfig()} onClick={this.mapHandler}/>
@@ -154,11 +153,36 @@ class App extends Component {
           {/* Charts begin here */}
           </div>
 
-          <div className="infopanel" style={{ width: 255, backgroundColor: '#f2f2f2' }}>
-              <div style={{ marginLeft: 20 }}>
-                <div className="text" style={{ width: 200 }}>
-                  <h4 style={{fontSize: 20, marginLeft: -22 }}><b>Primary wins to date</b></h4>
-                  <p style={{ fontSize: 12, marginLeft: -22, textAlign: 'left', width: 190 }}>
+          <div className="infopanel"
+            style={{
+              width: this.state.narrowScreen ? 400 : 255,
+              backgroundColor: '#f2f2f2',
+              marginTop: this.state.narrowScreen ? 40 : 0,
+              marginLeft: this.state.narrowScreen ? 'auto' : 0,
+              marginRight: this.state.narrowScreen ? 'auto' : 0
+            }}
+          >
+              <div className="infopanel-container"
+                style={{
+                  marginLeft: this.state.narrowScreen ? 100 : 20,
+                  marginRight: 'auto'
+                }}
+              >
+                <div className="text"
+                  style={{
+                    width: 200,
+                    paddingTop: 10
+                  }}
+                >
+                  <h4 style={{fontSize: 20, marginLeft: this.state.narrowScreen ? -22 :-22 }}><b>Primary wins to date</b></h4>
+                  <p
+                    style={{
+                      fontSize: 12,
+                      marginLeft: this.state.narrowScreen ? 0 : -22,
+                      textAlign: 'left',
+                      width: 190
+                    }}
+                  >
                     From Super Tuesday to Election Day, here is a look at our
                     progress in securing a credit union majority in November.
                   </p>
@@ -166,7 +190,13 @@ class App extends Component {
 
                 <div style={{ backgroundColor: '#f2f2f2', fontSize: 15 }}>
                     <div style={{ marginTop: 22, width: 195, backgroundColor: "white", border: '0.75px solid gray' }}><CunaCandidateSuccess/></div>
-                  <div style={{ width: 200, marginLeft: -40 }}>
+                  <div
+                    style={{
+                      width: 200,
+                      marginLeft: this.state.narrowScreen ? -40 : -40
+                    }}
+
+                  >
                     *As of {electionData.resultTracker.currentDate}
                   </div>
                 </div>
@@ -177,9 +207,23 @@ class App extends Component {
                         <td></td>
                         <td></td>
                       </tr>
-                      <tr style={{fontSize: 50, fontWeight: 700, padding: "auto", backgroundColor: 'white', overflow: "hide" }}>
-                        <td style={{  width: "50%", color: '#42c393',  /*border: "solid" */ borderRight: '1px dotted #CCCCCC' }}>{analytics.cunaSupportSuccessRate().totalRaces}</td>
-                        <td style={{ color: 'steelblue', /*border: "solid" */}}>{analytics.cunaSupportSuccessRate().wonRaces}</td>
+                      <tr
+                        style={{
+                          fontSize: 50,
+                          fontWeight: 700,
+                          padding: "auto",
+                          backgroundColor: 'white',
+                          overflow: "hide" }}
+                      >
+                        <td
+                          style={{  width: "50%", color: '#42c393', padding: '15%', /*border: "solid" */ borderRight: '1px dotted #CCCCCC' }}
+                        >
+                            {analytics.cunaSupportSuccessRate().totalRaces}
+                        </td>
+                        <td
+                          style={{ color: 'steelblue', padding: '15%' /*border: "solid" */}
+                        }>
+                            {analytics.cunaSupportSuccessRate().wonRaces}</td>
                       </tr>
                       <tr style={{ height: 15, fontSize: 10, backgroundColor: "white", textAlign: 'center', overflow: "hidden" }}>
                         <td style={{ padding: '0 12%, 0  12%', borderRight: '1px dotted #CCCCCC' }}>candidates supported</td>

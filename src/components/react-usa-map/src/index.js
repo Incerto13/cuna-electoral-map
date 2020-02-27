@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import data from "./data/usa-map-dimensions";
 import USAState from "./components/USAState";
 import './index.css';
+import mapLegend from '../../../Assets/map-legend.jpg';
 
 const wideScreen = window.innerWidth >= 900;
 const mediumScreen = window.innerWidth > 350 && window.innerWidth < 900;
@@ -42,6 +43,7 @@ export const USAMap = (props) => {
   };
 
     return (
+
       <svg  className="us-state-map" xmlns="http://www.w3.org/2000/svg" /*width={ styles.width}*/ height={props.height} viewBox="0 0 959 593">
         <title>{props.title}</title>
         <g className="outlines">
@@ -227,7 +229,6 @@ export const USAMap = (props) => {
           stroke-width="2"
           d="M215,493v55l36,45 M0,425h147l68,68h85l54,54v46"
         /> */}
-
       </svg>
     );
 }
@@ -244,7 +245,7 @@ USAMap.propTypes = {
 USAMap.defaultProps = {
   onClick: () => {},
   // width: ,   // default: 959
-  height: mediumScreen ? 280 : 500,  // default: 593
+  height: wideScreen ? 500 : 280,  // default: 593
   // height: 300,
   defaultFill: "#CCCCCC",
   title: "",
