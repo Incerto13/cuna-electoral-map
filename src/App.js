@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import USAMap from "./components/react-usa-map/src/index"; // 'react-usa-map
 import 'antd/dist/antd.css';
-import { Modal } from 'antd';
+import { Modal, Row, Col } from 'antd';
 import electionData from './election-data/';
 import stateFullName from './utils/stateFullName';
 import stateFillColor from './components/stateFillColor';
@@ -11,6 +11,7 @@ import analytics from './election-data/analytics';
 import StateResultView from './components/StateResultView';
 import mapLegend from './Assets/map-legend.jpg'
 import ModalFooter from './components/ModalFooter';
+
 
 const wideScreen = window.innerWidth >= 900;
 const mediumScreen = window.innerWidth > 560 && window.innerWidth < 900;
@@ -106,11 +107,13 @@ class App extends Component {
     console.log(window.innerWidth);
     console.log(this.state.wideScreen ? 'wideScreen' : this.state.mediumScreen ? 'mediumScreen' : 'narrowScreen');
     return (
-      <div  style={{ marginTop: -75, marginRight: 0, width: '100%', display: this.state.narrowScreen ? '' : 'flex' }}>
+      <div  style={{ marginTop: -75, marginRight: 0, /*width: '100%'*/ display: 'block' }}>
+
           <div>
             <div>
               <USAMap customize={this.statesCustomConfig()} onClick={this.mapHandler}/>
               </div>
+
             {/* <a href="https://www.cuna.org/Advocacy/Actions/Elections/2020-Elections/"
             style={{ color: "red", textDecoration: "underline", marginLeft: 20, fontSize: 10, marginTop: 0 }}>
               View full list of results by state
@@ -152,35 +155,54 @@ class App extends Component {
 
           {/* Charts begin here */}
           </div>
-
           <div className="infopanel"
             style={{
-              width: this.state.narrowScreen ? 400 : 255,
+              width: '100%',// this.state.narrowScreen ? 400 : 255,
               backgroundColor: '#f2f2f2',
-              marginTop: this.state.narrowScreen ? 40 : 0,
-              marginLeft: this.state.narrowScreen ? 'auto' : 0,
-              marginRight: this.state.narrowScreen ? 'auto' : 0
+              // marginTop: this.state.narrowScreen ? 40 : 0,
+              marginLeft: 'auto', // this.state.narrowScreen ? 'auto' : 0,
+              marginRight: 'auto',// this.state.narrowScreen ? 'auto' : 0,
+              // display: 'block', // none
+              // justifyContent: 'center'
+              display: 'block',
+              flexFlow: 'row wrap'
             }}
           >
+
               <div className="infopanel-container"
                 style={{
-                  marginLeft: this.state.narrowScreen ? 100 : 20,
-                  marginRight: 'auto'
+                  width: '100%',
+                  marginLeft: 'auto',// this.state.narrowScreen ? 100 : 20,
+                  paddingRight: 'auto',
+                  display: 'flex',
+                  // justifyContent: 'space-between'
                 }}
               >
                 <div className="text"
                   style={{
-                    width: 200,
+                    width: '100%',
+                    maxWidth: 200,
                     paddingTop: 10
                   }}
                 >
-                  <h4 style={{fontSize: 20, marginLeft: this.state.narrowScreen ? -22 :-22 }}><b>Primary wins to date</b></h4>
+                  <h4
+                    style={{
+                      fontSize: 20,
+                      marginTop: '20%',
+                      marginLeft: '30%', // this.state.narrowScreen ? -22 :-22
+                    }}
+                  >
+                        <b>Primary wins to date</b></h4>
                   <p
                     style={{
                       fontSize: 12,
-                      marginLeft: this.state.narrowScreen ? 0 : -22,
-                      textAlign: 'left',
-                      width: 190
+                      marginTop: '5%',
+                      marginLeft: '30%',// this.state.narrowScreen ? 0 : -22,
+                      textAlign: 'middle',
+                      // width: '100%',
+                      // maxWidth: 190
+                      order: 1,
+                      flex:'0 1 500px'
                     }}
                   >
                     From Super Tuesday to Election Day, here is a look at our
@@ -188,11 +210,23 @@ class App extends Component {
                   </p>
                 </div>
 
-                <div style={{ backgroundColor: '#f2f2f2', fontSize: 15 }}>
-                    <div style={{ marginTop: 22, width: 195, backgroundColor: "white", border: '0.75px solid gray' }}><CunaCandidateSuccess/></div>
+                <div style={{ backgroundColor: '#f2f2f2', fontSize: 15, display: 'block' }}>
+                    <div
+                      style={{
+                         marginTop: 22,
+                         width: '100%',
+                         mindWidth: 0,
+                         maxWidth: 195,
+                         display: 'block',
+                         leftMargin: '15%',
+                         backgroundColor: "white",
+                         border: '0.75px solid gray'
+                      }}><CunaCandidateSuccess/>
+                    </div>
                   <div
                     style={{
-                      width: 200,
+                      width: '100%',
+                      maxWidth: 200,
                       marginLeft: this.state.narrowScreen ? -40 : -40
                     }}
 
@@ -201,8 +235,19 @@ class App extends Component {
                   </div>
                 </div>
                 {/* end of chart */}
-                <div>
-                  <table style={{ width: 195, marginTop: 22 }}>
+                <div
+                  style={{
+                    mareginLeft: '16%',
+                    marginRight: '7%',
+                    width: '100%',
+                    maxWidth: 195,
+                  }}
+                >
+                  <table
+                    style={{
+                      marginTop: 22,
+                    }}
+                  >
                       <tr style={{ height: 20, backgroundColor: "white" }}>
                         <td></td>
                         <td></td>

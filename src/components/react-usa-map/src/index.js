@@ -44,7 +44,7 @@ export const USAMap = (props) => {
 
     return (
 
-      <svg  className="us-state-map" xmlns="http://www.w3.org/2000/svg" /*width={ styles.width}*/ height={props.height} viewBox="0 0 959 593">
+      <svg  className="us-state-map" xmlns="http://www.w3.org/2000/svg" style={{ width: '100% '}} /*width={ styles.width}*/ height={props.height} viewBox="0 0 959 593">
         <title>{props.title}</title>
         <g className="outlines">
           {buildPaths()}
@@ -245,8 +245,7 @@ USAMap.propTypes = {
 USAMap.defaultProps = {
   onClick: () => {},
   // width: ,   // default: 959
-  height: wideScreen ? 500 : 280,  // default: 593
-  // height: 300,
+  // height: wideScreen ? 500 : 280,  // default: 593
   defaultFill: "#CCCCCC",
   title: "",
   customize: {}
