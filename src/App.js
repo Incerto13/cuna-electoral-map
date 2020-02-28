@@ -73,7 +73,7 @@ class App extends Component {
   resize = () => {
     if (window.innerWidth >= 900) {
       if (!this.state.wideScreen) {
-        window.location.reload();
+        // window.location.reload();
       }
       this.setState({
         wideScreen: true,
@@ -82,7 +82,7 @@ class App extends Component {
       });
     } else if (window.innerWidth <= 560) {
       if (!this.state.narrowScreen) {
-        window.location.reload();
+        // window.location.reload();
       }
       this.setState({
         wideScreen: false,
@@ -91,7 +91,7 @@ class App extends Component {
       });
     } else if (window.innerWidth > 560 && window.innerWidth < 900) {
       if (!this.state.mediumScreen) {
-        window.location.reload();
+        // window.location.reload();
       }
       this.setState({
         wideScreen: false,
@@ -106,7 +106,7 @@ class App extends Component {
     console.log(window.innerWidth);
     console.log(this.state.wideScreen ? 'wideScreen' : this.state.mediumScreen ? 'mediumScreen' : 'narrowScreen');
     return (
-      <div  style={{ marginTop: -75, marginRight: 0, width: '100%', display: this.state.narrowScreen ? '' : 'flex' }}>
+      <div  style={{ marginTop: -75, marginRight: 0, width: '100%', display: 'block' /*this.state.narrowScreen ? '' : 'flex'*/ }}>
           <div>
             <div>
               <USAMap customize={this.statesCustomConfig()} onClick={this.mapHandler}/>
@@ -159,7 +159,8 @@ class App extends Component {
               backgroundColor: '#f2f2f2',
               marginTop: this.state.narrowScreen ? 40 : 0,
               marginLeft: this.state.narrowScreen ? 'auto' : 0,
-              marginRight: this.state.narrowScreen ? 'auto' : 0
+              marginRight: this.state.narrowScreen ? 'auto' : 0,
+              display: ''
             }}
           >
               <div className="infopanel-container"
