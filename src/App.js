@@ -120,11 +120,12 @@ class App extends Component {
 
             <Modal
               visible={this.state.modalVisible}
+              centered
               title={
                   !this.state.selectedState.resultFinal
                   ? <div><h1>{this.state.selectedState.fullName}</h1></div>
                   : <div>
-                      <h1>{this.state.selectedState.fullName}</h1>Statewide Primary Results from {this.state.selectedState.primaryDate}
+                      <h1>{this.state.selectedState.fullName}</h1>Primary results from {this.state.selectedState.primaryDate}
                     </div>
               }
 
@@ -143,7 +144,7 @@ class App extends Component {
                         <StateResultView state={this.state.selectedState.abbrName}/>
                       )
                   ||
-                      <div>Statewide primary occurs on <b>{this.state.selectedState.primaryDate}</b></div>
+                      <div>Primary results occur on <b>{this.state.selectedState.primaryDate}</b></div>
                 )
 
               }

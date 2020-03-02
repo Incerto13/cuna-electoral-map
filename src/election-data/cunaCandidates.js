@@ -1,20 +1,10 @@
 const cunaCandidates = {
-  AL: [
-    {
-      name: "TEST 1 TEST 1 (R)",
-      chamber: "house",
-      district: 2,
-      winner: false,
-      openSeat: true,
-      runOff: true
-    }
-  ],
-  NC: [
+  WI: [
     {
       name: "TEST 2 TEST 2 (D)",
       chamber: "house",
       district: 2,
-      winner: true,
+      winner: false,
       openSeat: false,
       runOff: false
     }

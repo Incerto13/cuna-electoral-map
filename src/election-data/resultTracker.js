@@ -2,7 +2,7 @@ const resultTracker = {
   currentDate: '02/21/2020', // put the current date here after updating
   AL: {
     primaryDate: '3/3/2020',
-    resultFinal: true,
+    resultFinal: false,
     notes: 'Runoff occurs on April 28th'
   },
   AK: {
@@ -167,7 +167,7 @@ const resultTracker = {
   },
   NC: {
     primaryDate: '3/3/2020',
-    resultFinal: true,
+    resultFinal: false,
     notes: ''
   },
   ND: {
@@ -247,7 +247,7 @@ const resultTracker = {
   },
   WI: {
     primaryDate: '8/11/2020',
-    resultFinal: false,
+    resultFinal: true,
     notes: ''
   },
   WY: {
