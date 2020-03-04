@@ -144,7 +144,7 @@ class App extends Component {
                         <StateResultView state={this.state.selectedState.abbrName}/>
                       )
                   ||
-                      <div>Primary results occur on <b>{this.state.selectedState.primaryDate}</b></div>
+                      <div>Primary election occurs on <b>{this.state.selectedState.primaryDate}</b></div>
                 )
 
               }
